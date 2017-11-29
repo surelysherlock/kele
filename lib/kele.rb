@@ -16,6 +16,6 @@ class Kele
   end
 
   def get_mentor_availability(mentor_id)
-    response = JSON.parse(Kele.get("/mentors/" + mentor_id + "/student_availability", headers: { "authorization" => @post_response}).body)
+    response = JSON.parse(Kele.get("/mentors/#{mentor_id}/student_availability", headers: { "authorization" => @post_response}).body)
   end
 end
