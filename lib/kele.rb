@@ -28,4 +28,8 @@ class Kele
   def create_message(recipient_id, message)
     response = Kele.post("/messages", headers: { "authorization" => @post_response} , body: { "sender" => @email, "recipient_id" => recipient_id, "stripped-text" => message})
   end
+
+  def create_submission(checkpoint_id, enrollment_id)
+    post_response = Kele.post("/checkpoint_submissions", headers: { "authorization" => @post_response}, body: { "enrollment_id" => enrollment_id, "checkpoint_id" => checkpoint_id})
+  end
 end
