@@ -20,4 +20,12 @@ class Kele
   def get_mentor_availability(mentor_id)
     response = JSON.parse(Kele.get("/mentors/#{mentor_id}/student_availability", headers: { "authorization" => @post_response}).body)
   end
+
+  def get_messages
+    response = JSON.parse(Kele.get("/message_threads", headers: { "authorization" => @post_response}).body)
+  end
+
+  def create_message(recipient_id, message)
+    response = Kele.post("/messages", headers: { "authorization" => @post_response} , body: { "sender" => @email, "recipient_id" => recipient_id, "stripped-text" => message})
+  end
 end
