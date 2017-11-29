@@ -32,4 +32,8 @@ class Kele
   def create_submission(checkpoint_id, enrollment_id)
     post_response = Kele.post("/checkpoint_submissions", headers: { "authorization" => @post_response}, body: { "enrollment_id" => enrollment_id, "checkpoint_id" => checkpoint_id})
   end
+
+  def update_submission(checkpoint_id, checkpoint_submission_id, enrollment_id)
+    post_response = Kele.put("/checkpoint_submissions/#{checkpoint_submission_id}", headers: { "authorization" => @post_response}, body: { "enrollment_id" => enrollment_id, "checkpoint_id" => checkpoint_id, "id" => checkpoint_submission_id })
+  end
 end
